@@ -1,0 +1,18 @@
+const history_control = require('./summoner_page');
+
+const matches = history_control.search;
+
+//ranking champs
+module.exports = {
+    async top_five() {
+        /*const champions = matches.map(function get_chanp(item) { return item.champion });
+        var champ_count = {};
+        champions.forEach(function (x) { champ_count[x] = (champ_count[x] || 0) + 1 });
+        var champ_rank = Object.keys(champ_count).sort(function (a, b) { return champ_count[b] - champ_count[a] })
+        const top_champs = [champ_rank[0], champ_rank[1], champ_rank[2], champ_rank[3], champ_rank[4]];
+        console.log(top_champs);
+        return top_champs;*/
+        console.log('teste');
+    }
+}
+//ranking champs

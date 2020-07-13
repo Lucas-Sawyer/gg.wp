@@ -1,0 +1,10 @@
+historico
+porcentagem de vitorias
+top champions
+se esta jogando no momento/partida atual
+spected player*
+
+
+retorno:
+
+tenpo de jogo, mapa do jogo, heroi que esta jogando, role do jogador

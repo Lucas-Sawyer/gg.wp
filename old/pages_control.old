@@ -1,0 +1,14 @@
+const history_control = require('./summoner_page');
+const victory_control = require('./victory_control');
+const champions_top5_control = require('./champions_top5_control');
+
+module.exports = {
+    async summoner_page(req, res) {
+        const { name } = req.params;
+
+        const history = await history_control.search(name);
+        const top_five_champ = await champions_top5_control.top_five();
+        const victory_percentege = await victory_control.vic_perce(name);
+        return res.json(history, top_five_champ, victory_percentege);
+    }
+}

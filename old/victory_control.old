@@ -1,0 +1,44 @@
+const axios = require('../config/api');
+const history_control = require('./summoner_page');
+
+
+module.exports = {
+    async vic_perce(name) {
+        const matches = await history_control.search(name);
+        try {
+            const match_ids = matches.map(function get_match_id(item) { return item.gameId })
+            var victory_percentage;
+            for (i = 0; i < 1/*match_ids.length*/; i++) {
+                const api_match = await axios.get(`match/v4/matches/${match_ids[i]}`);
+                const { participantIdentities: players } = api_match.data;
+                const name_players = players.map(function (item) { return item.player.summonerName });
+                const id_player = name_players.indexOf(name) + 1;
+                console.log(id_player);
+                return id_player;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+//victory %
+/*module.exports =
+    async vic_perce(req, res){
+    try {
+        const match_ids = matches.map(function get_match_id(item) { return item.gameId })
+        var victory_percentage;
+        for (i = 0; i < match_ids.length; i++) {
+            const api_match = await axios.get(`match/v4/matches/${match_ids[i]}`);
+            const { participantIdentities: players } = api_match.data;
+            const name_players = players.map(function (item) { return item.player.summonerName });
+            const id_player = name_players.indexOf(name) + 1;
+            console.log(id_player);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}*/
+
+            //victory %
